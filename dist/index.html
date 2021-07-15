@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Петербургская недвижимость - Тестовое задание</title>
+    <link rel="stylesheet" href="css/style.min.css">
+</head>
+
+<body class="page">
+    <main class="main">
+        <div class="container">
+            <form class="form filter">
+                <div class="input search filter__search">
+                    <input class="search__input" type="text" placeholder="Введите ЖК / корпус / № квартиры / № паркинга">
+                    <svg class="search__icon" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 15L11 11M7 13C3.68629 13 1 10.3137 1 7C1 3.68629 3.68629 1 7 1C10.3137 1 13 3.68629 13 7C13 10.3137 10.3137 13 7 13Z" stroke="#9B9B9B" stroke-width="1.5"/>
+                    </svg>
+                </div>
+                <div class="input status-select">
+                    <input id="status-select-0" class="visually-hidden status-select__check" type="checkbox">
+                    <label class="status-select__value" for="status-select-0">Все статусы</label>
+                    <div class="status-select__options">
+                        <ul class="status-list status-select__list">
+                            <li class="status-list__item">
+                                <div class="check-group">
+                                    <input id="status-0" class="visually-hidden check-group__input" type="checkbox" name="status" value="0">
+                                    <label class="check-group__label" for="status-0">Забронировано</label>
+                                </div>
+                            </li>
+                            <li class="status-list__item">
+                                <div class="check-group">
+                                    <input id="status-1" class="visually-hidden check-group__input" type="checkbox" name="status" value="1">
+                                    <label class="check-group__label" for="status-1">Продано</label>
+                                </div>
+                            </li>
+                            <li class="status-list__item">
+                                <div class="check-group">
+                                    <input id="status-2" class="visually-hidden check-group__input" type="checkbox" name="status" value="2">
+                                    <label class="check-group__label" for="status-2">Активно</label>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <button class="btn filter__clear" type="button">
+                    Очистить корзину
+                    <svg class="btn__icon" aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 1L13 13M1 13L13 1" stroke="black"/>
+                    </svg>
+                </button>
+                <ul class="actions">
+                    <li class="actions__item">
+                        <div class="check-group">
+                            <input id="all" class="visually-hidden check-group__input" type="checkbox" name="all">
+                            <label class="check-group__label check-group__label--short" for="all">все</label>
+                        </div>
+                    </li>
+                    <li class="actions__item">
+                        <button class="btn" type="button">
+                            Сохранить
+                            <svg class="btn__icon btn__icon--fill" aria-hidden="true" width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2 7V6.5H1.5V7H2ZM6 7V6.5H5.5V7H6ZM6 11H5.5V11.5H6V11ZM13 4H13.5V3.79289L13.3536 3.64645L13 4ZM10 1L10.3536 0.646447L10.2071 0.5H10V1ZM2 7.5H3V6.5H2V7.5ZM2.5 11.5V9H1.5V11.5H2.5ZM2.5 9V7H1.5V9H2.5ZM3 8.5H2V9.5H3V8.5ZM3.5 8C3.5 8.27614 3.27614 8.5 3 8.5V9.5C3.82843 9.5 4.5 8.82843 4.5 8H3.5ZM3 7.5C3.27614 7.5 3.5 7.72386 3.5 8H4.5C4.5 7.17157 3.82843 6.5 3 6.5V7.5ZM5.5 7V11H6.5V7H5.5ZM6 11.5H7V10.5H6V11.5ZM8.5 10V8H7.5V10H8.5ZM7 6.5H6V7.5H7V6.5ZM8.5 8C8.5 7.17157 7.82843 6.5 7 6.5V7.5C7.27614 7.5 7.5 7.72386 7.5 8H8.5ZM7 11.5C7.82843 11.5 8.5 10.8284 8.5 10H7.5C7.5 10.2761 7.27614 10.5 7 10.5V11.5ZM9.5 6.5V11.5H10.5V6.5H9.5ZM10 7.5H12.5V6.5H10V7.5ZM10 9.5H11.5V8.5H10V9.5ZM1.5 5.5V2H0.5V5.5H1.5ZM12.5 4V5.5H13.5V4H12.5ZM2 1.5H10V0.5H2V1.5ZM9.64645 1.35355L12.6464 4.35355L13.3536 3.64645L10.3536 0.646447L9.64645 1.35355ZM1.5 2C1.5 1.72386 1.72386 1.5 2 1.5V0.5C1.17157 0.5 0.5 1.17157 0.5 2H1.5ZM0.5 12.5V14H1.5V12.5H0.5ZM2 15.5H12V14.5H2V15.5ZM13.5 14V12.5H12.5V14H13.5ZM12 15.5C12.8284 15.5 13.5 14.8284 13.5 14H12.5C12.5 14.2761 12.2761 14.5 12 14.5V15.5ZM0.5 14C0.5 14.8284 1.17157 15.5 2 15.5V14.5C1.72386 14.5 1.5 14.2761 1.5 14H0.5Z" fill="black"/>
+                            </svg>
+                        </button>
+                    </li>
+                    <li class="actions__item">
+                        <button class="btn" type="button">
+                            Отправить
+                            <svg class="btn__icon btn__icon--fill" aria-hidden="true" width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M14 1L14.4596 1.19696C14.5401 1.00904 14.4981 0.791016 14.3536 0.646447C14.209 0.501877 13.991 0.45989 13.803 0.540427L14 1ZM1 6.57143L0.80304 6.11186C0.630457 6.18582 0.513861 6.35024 0.501148 6.53757C0.488434 6.72491 0.581745 6.90357 0.742752 7.00017L1 6.57143ZM8.42857 14L7.99982 14.2572C8.09643 14.4183 8.27509 14.5116 8.46243 14.4989C8.64976 14.4861 8.81418 14.3695 8.88814 14.197L8.42857 14ZM13.803 0.540427L0.80304 6.11186L1.19696 7.031L14.197 1.45957L13.803 0.540427ZM0.742752 7.00017L5.38561 9.78589L5.9001 8.9284L1.25725 6.14268L0.742752 7.00017ZM5.21411 9.61439L7.99982 14.2572L8.85732 13.7428L6.0716 9.09989L5.21411 9.61439ZM8.88814 14.197L14.4596 1.19696L13.5404 0.80304L7.969 13.803L8.88814 14.197ZM13.6464 0.646447L5.2893 9.00359L5.99641 9.7107L14.3536 1.35355L13.6464 0.646447Z" fill="black"/>
+                            </svg>
+                        </button>
+                    </li>
+                    <li class="actions__item">
+                        <button class="btn" type="button">
+                            Удалить
+                            <svg class="btn__icon" aria-hidden="true" width="12" height="16" viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3.6 3.5V2C3.6 1.44772 3.95817 1 4.4 1H7.6C8.04183 1 8.4 1.44772 8.4 2V3.5M0 4H12M1.2 4V14C1.2 14.5523 1.55817 15 2 15H10C10.4418 15 10.8 14.5523 10.8 14V4M6 7.5V12.5M3.6 9.5V12.5M8.4 9.5V12.5" stroke="black"/>
+                            </svg>
+                        </button>
+                    </li>
+                </ul>
+            </form>
+            <ul class="flat-list">
+                <li class="flat-list__item">
+                    <article class="flat-card">
+                        <div class="flat-card__main-wrapper">
+                            <div class="check-group flat-card__check-group">
+                                <input id="flat-1" class="visually-hidden check-group__input" type="checkbox" name="flat-check">
+                                <label class="check-group__label check-group__label--empty" for="flat-1">
+                                    <span class="visually-hidden">Выбрать квартиру 62 в ЖК Чистое Небо, корпус 10, III кв. 2022 г.</span>
+                                </label>
+                            </div>
+                            <div class="flat-card__main">
+                                <p class="flat-card__price">
+                                    7 733 300 руб.
+                                    <span class="tooltip">
+                                        <a class="tooltip__link" href="#tooltip-flat-1">Квартира</a>
+                                        <span id="tooltip-flat-1"  class="tooltip__text">
+                                            Подземная встроенно-пристроенная
+                                        </span>
+                                    </span>
+                                </p>
+                                <h2 class="flat-card__title">
+                                    Чистое Небо, <span class="flat-card__annotation">корпус 10, III кв. 2022 г.</span>
+                                </h2>
+                                <table class="flat-info-table flat-card__info">
+                                    <tbody>
+                                        <tr>
+                                            <td class="flat-info-table__cell">кв. 62</td>
+                                            <td class="flat-info-table__cell">234.38 м<sup class="sup">2</sup></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="flat-info-table__cell">1 комн. кв.</td>
+                                            <td class="flat-info-table__cell">7 этаж</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <p class="flat-card__address">
+                                    Лен. область, Всеволожский район, д. Кудрово, ул. Столичная, д. 5, к. 1
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flat-card__another">
+                            <p class="flat-card__addition flat-card__addition--red">
+                                Уступка от юр. лица
+                            </p>
+                            <picture>
+                                <source srcset="assets/images/dest/flat-1.webp, assets/images/dest/flat-1@2x.webp 2x" type="image/webp">
+                                <img class="flat-card__image" width="127" height="98" srcset="assets/images/dest/flat-1.jpg" src="assets/images/dest/flat-1@2x.jpg" alt="Петербургская недвижимость - Схема 1-комнатной квартиры в ЖК Чистое Небо">
+                            </picture>
+                            <p class="flat-card__time">
+                                Добавлено <time datetime="2020-11-21">21/11/2020</time>
+                            </p>
+                        </div>
+                    </article>
+                </li>
+                <li class="flat-list__item">
+                    <article class="flat-card">
+                        <div class="flat-card__main-wrapper">
+                            <div class="check-group flat-card__check-group">
+                                <input id="flat-2" class="visually-hidden check-group__input" type="checkbox" name="flat-check">
+                                <label class="check-group__label check-group__label--empty" for="flat-2">
+                                    <span class="visually-hidden">Выбрать квартиру 62 в Зеленый квартал на Пулковских высотах, корпус 10, III кв. 2022 г.</span>
+                                </label>
+                            </div>
+                            <div class="flat-card__main">
+                                <p class="flat-card__price">
+                                    7 733 300 руб. <span class="tooltip">
+                                        <a class="tooltip__link" href="#tooltip-flat-2">Квартира</a>
+                                        <span id="tooltip-flat-2" class="tooltip__text">
+                                            Подземная встроенно-пристроенная
+                                        </span>
+                                    </span>
+                                </p>
+                                <h2 class="flat-card__title">
+                                    Зеленый квартал на Пулковских высотах, <span class="flat-card__annotation">корпус 10, III кв. 2022 г.</span>
+                                </h2>
+                                <table class="flat-info-table flat-card__info">
+                                    <tbody>
+                                        <tr>
+                                            <td class="flat-info-table__cell">кв. 62</td>
+                                            <td class="flat-info-table__cell">234.38 м<sup class="sup">2</sup></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="flat-info-table__cell">1 комн. кв.</td>
+                                            <td class="flat-info-table__cell">7 этаж</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <p class="flat-card__address">
+                                    Комендантский пр., уч. 1 Каменка
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flat-card__another">
+                            <p class="flat-card__addition flat-card__addition--blue">
+                                Уступка от физ. лица
+                            </p>
+                            <picture>
+                                <source srcset="assets/images/dest/flat-1.webp, assets/images/dest/flat-1@2x.webp 2x" type="image/webp">
+                                <img class="flat-card__image" width="127" height="98" srcset="assets/images/dest/flat-1.jpg" src="assets/images/dest/flat-1@2x.jpg" alt="Петербургская недвижимость - Схема 1-комнатной квартиры в ЖК Чистое Небо">
+                            </picture>
+                            <p class="flat-card__time">
+                                Добавлено <time datetime="2020-11-21">21/11/2020</time>
+                            </p>
+                        </div>
+                    </article>
+                </li>
+                <li class="flat-list__item">
+                    <article class="flat-card">
+                        <div class="flat-card__main-wrapper">
+                            <div class="check-group flat-card__check-group">
+                                <input id="flat-3" class="visually-hidden check-group__input" type="checkbox" name="flat-check">
+                                <label class="check-group__label check-group__label--empty" for="flat-3">
+                                    <span class="visually-hidden">Выбрать квартиру 62 в Зеленый квартал на Пулковских высотах, корпус 10, III кв. 2022 г.</span>
+                                </label>
+                            </div>
+                            <div class="flat-card__main">
+                                <p class="flat-card__price">
+                                    800 300 руб.
+                                    <span class="tooltip tooltip--car">
+                                        <a class="tooltip__link" href="#tooltip-parking-1">Паркинг</a>
+                                        <span id="tooltip-parking-1" class="tooltip__text">
+                                            Подземная встроенно-пристроенная
+                                        </span>
+                                    </span>
+                                </p>
+                                <h2 class="flat-card__title">
+                                    Зеленый квартал на Пулковских высотах, <span class="flat-card__annotation">корпус 10, III кв. 2022 г.</span>
+                                </h2>
+                                <table class="flat-info-table flat-card__info">
+                                    <tbody>
+                                        <tr>
+                                            <td class="flat-info-table__cell">№ 7-10-2 (ПИБ №68)</td>
+                                            <td class="flat-info-table__cell">15 м<sup class="sup">2</sup></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <p class="flat-card__address">
+                                    Ленинградская область, Всеволожский район, д. Кудрово, ул. Столичная, д. 5, к. 1
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flat-card__another">
+                            <p class="flat-card__addition">
+                                Забронировано
+                            </p>
+                            <picture>
+                                <source srcset="assets/images/dest/flat-1.webp, assets/images/dest/flat-1@2x.webp 2x" type="image/webp">
+                                <img class="flat-card__image" width="127" height="98" srcset="assets/images/dest/flat-1.jpg" src="assets/images/dest/flat-1@2x.jpg" alt="Петербургская недвижимость - Схема 1-комнатной квартиры в ЖК Чистое Небо">
+                            </picture>
+                            <p class="flat-card__time">
+                                Добавлено <time datetime="2020-11-21">21/11/2020</time>
+                            </p>
+                        </div>
+                    </article>
+                </li>
+                <li class="flat-list__item">
+                    <article class="flat-card">
+                        <div class="flat-card__main-wrapper">
+                            <div class="check-group flat-card__check-group">
+                                <input id="flat-4" class="visually-hidden check-group__input" type="checkbox" name="flat-check">
+                                <label class="check-group__label check-group__label--empty" for="flat-4">
+                                    <span class="visually-hidden">Выбрать квартиру 62 в Зеленый квартал на Пулковских высотах, корпус 10, III кв. 2022 г.</span>
+                                </label>
+                            </div>
+                            <div class="flat-card__main">
+                                <p class="flat-card__price">
+                                    800 300 руб.
+                                    <span class="tooltip tooltip--car">
+                                        <a class="tooltip__link" href="#tooltip-parking-2">Паркинг</a>
+                                        <span id="tooltip-parking-2" class="tooltip__text">
+                                            Подземная встроенно-пристроенная
+                                        </span>
+                                    </span>
+                                </p>
+                                <h2 class="flat-card__title">
+                                    Зеленый квартал на Пулковских высотах, <span class="flat-card__annotation">корпус 10, III кв. 2022 г.</span>
+                                </h2>
+                                <table class="flat-info-table flat-card__info">
+                                    <tbody>
+                                        <tr>
+                                            <td class="flat-info-table__cell">№ 7-10-2 (ПИБ №68)</td>
+                                            <td class="flat-info-table__cell">15 м<sup class="sup">2</sup></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <p class="flat-card__address">
+                                    Лен. область, Всеволожский район, д. Кудрово, ул. Столичная, д. 5, к. 1
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flat-card__another">
+                            <p class="flat-card__addition flat-card__addition--dark-gray">
+                                Продано
+                            </p>
+                            <picture>
+                                <source srcset="assets/images/dest/flat-1.webp, assets/images/dest/flat-1@2x.webp 2x" type="image/webp">
+                                <img class="flat-card__image" width="127" height="98" srcset="assets/images/dest/flat-1.jpg" src="assets/images/dest/flat-1@2x.jpg" alt="Петербургская недвижимость - Схема 1-комнатной квартиры в ЖК Чистое Небо">
+                            </picture>
+                            <p class="flat-card__time">
+                                Добавлено <time datetime="2020-11-21">21/11/2020</time>
+                            </p>
+                        </div>
+                    </article>
+                </li>
+            </ul>
+        </div>
+    </main>
+    <script src="js/script.min.js"></script>
+</body>
+
+</html>
