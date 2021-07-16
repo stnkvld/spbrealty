@@ -11,7 +11,7 @@ statusCheckItems.forEach(function(item) {
         const checkedStatuses = document.querySelectorAll('.status-list__item .check-group__input:checked');
 
         let resultString = 'Все статусы';
-        if (checkedStatuses) {
+        if (checkedStatuses.length > 0) {
             let resultArray = [];
             checkedStatuses.forEach(function(checkedItem) {
                 resultArray.push(checkedItem.nextElementSibling.innerHTML);
